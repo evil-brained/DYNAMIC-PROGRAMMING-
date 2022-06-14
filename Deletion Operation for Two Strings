@@ -34,10 +34,14 @@ void solve(string s,string t)
 int main()
 {
     fastIO();
-	ll t=1;l
+	ll t=1;
 	cin>>t;
+	string s,tt;
 	while(t--)
-	     solve();
+	{
+             cin>>s>>tt
+	     solve(s,tt);
+	}
     return 0;
 
 
