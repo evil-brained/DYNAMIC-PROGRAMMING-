@@ -1,0 +1,44 @@
+/* YV JAWAHAR */
+
+
+/*Given a string s, find the longest palindromic subsequence's length in s.*/
+
+
+ 
+#include<bits/stdc++.h>
+using namespace std;
+void fastIO()
+{
+	ios::sync_with_stdio(false);
+    cin.tie(0);
+}
+int lcs(int n ,int m,string &s, string&t,vector<vector<int>>&dp)
+{
+        if(n<0 ||m<0)return 0;
+        if(dp[n][m]!=-1) return dp[n][m];
+        if(s[n]==t[m]) return dp[n][m]=1+lcs(n-1,m-1,s,t,dp);
+        return dp[n][m]=max(lcs(n-1,m,s,t,dp),lcs(n,m-1,s,t,dp));
+}
+void solve(string s)
+{
+        int n=s.size();
+        string t = string(s.rbegin(), s.rend());
+        int m=t.size();
+        vector<vector<int>>dp(n,vector<int>(m,-1));
+        cout<<lcs(n-1,m-1,s,t,dp);
+        
+}
+	
+int main()
+{
+  fastIO();
+	ll t=1;
+	string s;
+	while(t--){
+	     cin>>s;
+	     solve(s);
+       }
+    return 0;
+
+
+ }
